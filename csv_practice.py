@@ -50,3 +50,18 @@ with open("data/sales.csv", "r", newline="") as infile, \
             writer.writerow([product, f"{price:.2f}", quantity, f"{line_total:.2f}"])
             rows_written += 1
 print(f"Rows written: {rows_written} of {rows_read} original rows")
+
+# --- Exercise 6 ---
+# csv.reader gives me each row as a list, so I find things by number.
+# DictReader lets me use the column name, which is easier to read and I prefer it.
+dict_total = 0
+with open("data/sales.csv", "r", newline="") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        price = float(row["price"])
+        quantity = int(row["quantity"])
+        line_total = price * quantity
+        dict_total += line_total
+        print(f"{row['product']}: {quantity} units × ${price:.2f} = ${line_total:.2f}")
+print(f"Total revenue (DictReader): ${dict_total:.2f}")
+print("Matches Exercise 4:", round(dict_total, 2) == round(total_revenue, 2))
