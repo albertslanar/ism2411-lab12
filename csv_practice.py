@@ -76,3 +76,11 @@ with open("data/sales.csv", "r", newline="") as f:
         summary[name] = summary.get(name, 0) + line_total
 for name in sorted(summary):
     print(f"{name}: ${summary[name]:.2f}")
+
+# --- Exercise 8 ---
+from datetime import datetime
+
+timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+with open("data/run_log.txt", "a") as log:
+    log.write(f"{timestamp} - total revenue: ${total_revenue:.2f}\n")
+print("Appended a line to data/run_log.txt")
