@@ -1,3 +1,9 @@
+# Reflection 1:
+# Python can do the same steps over and over by itself, even with huge files. Excel is easier for looking at numbers and fixing them by hand.
+
+# Reflection 2:
+# A store could keep a list of every sale it makes. Append mode adds a new line each time without deleting the old ones, so nothing gets lost.
+
 # --- Exercise 1 ---
 with open("data/sales.csv", "r") as f:
     print("Opened successfully")
